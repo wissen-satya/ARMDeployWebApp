@@ -11,7 +11,7 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - uses: azure/arm-deploy@v1
       with:
-        resourceGroupName: github-action-arm-rg
+        resourceGroupName: nestrg
         template: ./template.json
         parameters: ./parameters.json
         
