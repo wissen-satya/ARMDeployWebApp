@@ -1,0 +1,17 @@
+on: [push]
+name: AzureARMSample
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - uses: azure/arm-deploy@v1
+      with:
+        resourceGroupName: github-action-arm-rg
+        template: ./template.json
+        parameters: ./parameters.json
+        
